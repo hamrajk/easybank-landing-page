@@ -17,10 +17,26 @@
       display: block;
       width: 26px;
       height: 2px;
+      transition: all 300ms ease-in-out;
       background-color: $darkBlue;
+      transform-origin: 2px 1px;
 
       &:not(:last-child) {
-        margin-bottom: 3px;
+        margin-bottom: 6px;
+      }
+    }
+
+    &.open {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
       }
     }
   }
@@ -28,7 +44,6 @@
   &__links {
     a {
       position: relative;
-      border: 1px solid red;
       font-size: $font-sm;
       color: $grayishBlue;
       transition: color 300ms ease-in-out;
