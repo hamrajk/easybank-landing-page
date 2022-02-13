@@ -1,6 +1,14 @@
 .hero {
+  background-color: $veryLightGray;
+
+  .container {
+    @include breakpoint-up(large) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
   &__image {
-    border: 1px solid magenta;
     position: relative;
     background-image: url("/images/bg-intro-mobile.svg");
     background-size: cover;
@@ -8,7 +16,35 @@
     background-position: center center;
     min-height: 17.5rem;
 
+    @include breakpoint-up(medium) {
+      min-height: 25rem;
+      background-position: center 60%;
+    }
+    @include breakpoint-up(large) {
+      flex: 3;
+      order: 2;
+      min-height: 41rem;
+      // background-image: url("/images/bg-intro-desktop.svg");
+      // background-position: left center;
+      background-image: none;
+    }
+
     &::before {
+      @include breakpoint-up(large) {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 150%;
+        background-image: url("/images/bg-intro-desktop.svg");
+        background-size: 122%;
+        // background-size: 93%;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-position: 0 83%;
+      }
+    }
+
+    &::after {
       content: "";
       position: absolute;
       height: 100%;
@@ -17,6 +53,18 @@
       background-size: 93%;
       background-repeat: no-repeat;
       background-position: center bottom;
+
+      @include breakpoint-up(medium) {
+        background-size: 52%;
+      }
+
+      @include breakpoint-up(large) {
+        width: 120%;
+        height: 122%;
+        background-size: 94%;
+        background-position: center 150%;
+        left: 22%;
+      }
     }
   }
 
@@ -29,11 +77,21 @@
       line-height: 1.15;
       font-size: 2.31rem;
       margin-bottom: 1.5rem;
+
+      @include breakpoint-up(large) {
+        font-size: $font-xlg;
+      }
     }
 
     p {
       line-height: 1.5;
       margin-bottom: 2.25rem;
+    }
+
+    @include breakpoint-up(large) {
+      flex: 2;
+      order: 1;
+      text-align: left;
     }
   }
 }

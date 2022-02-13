@@ -90,6 +90,11 @@ body {
   font-weight: 300;
   color: #9698a6;
 }
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem;
+  }
+}
 body.noscroll {
   overflow: hidden;
 }
@@ -107,9 +112,33 @@ a:hover {
 }
 
 .container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+}
+.container--pall {
   padding-top: 2.25rem;
   padding-right: 1.5rem;
   padding-bottom: 2.25rem;
+  padding-left: 1.5rem;
+}
+.container--py {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+.container--px {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.container--pt {
+  padding-top: 2.25rem;
+}
+.container--pr {
+  padding-right: 1.5rem;
+}
+.container--pb {
+  padding-bottom: 2.25rem;
+}
+.container--pr {
   padding-left: 1.5rem;
 }
 
@@ -240,8 +269,16 @@ button:hover,
   opacity: 1;
 }
 
+.hero {
+  background-color: #fafafa;
+}
+@media (min-width: 64em) {
+  .hero .container {
+    display: flex;
+    align-items: center;
+  }
+}
 .hero__image {
-  border: 1px solid magenta;
   position: relative;
   background-image: url("/images/bg-intro-mobile.svg");
   background-size: cover;
@@ -249,7 +286,34 @@ button:hover,
   background-position: center center;
   min-height: 17.5rem;
 }
-.hero__image::before {
+@media (min-width: 40em) {
+  .hero__image {
+    min-height: 25rem;
+    background-position: center 60%;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image {
+    flex: 3;
+    order: 2;
+    min-height: 41rem;
+    background-image: none;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 150%;
+    background-image: url("/images/bg-intro-desktop.svg");
+    background-size: 122%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-position: 0 83%;
+  }
+}
+.hero__image::after {
   content: "";
   position: absolute;
   height: 100%;
@@ -258,6 +322,20 @@ button:hover,
   background-size: 93%;
   background-repeat: no-repeat;
   background-position: center bottom;
+}
+@media (min-width: 40em) {
+  .hero__image::after {
+    background-size: 52%;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image::after {
+    width: 120%;
+    height: 122%;
+    background-size: 94%;
+    background-position: center 150%;
+    left: 22%;
+  }
 }
 .hero__text {
   text-align: center;
@@ -269,7 +347,19 @@ button:hover,
   font-size: 2.31rem;
   margin-bottom: 1.5rem;
 }
+@media (min-width: 64em) {
+  .hero__text h1 {
+    font-size: 3.25rem;
+  }
+}
 .hero__text p {
   line-height: 1.5;
   margin-bottom: 2.25rem;
+}
+@media (min-width: 64em) {
+  .hero__text {
+    flex: 2;
+    order: 1;
+    text-align: left;
+  }
 }/*# sourceMappingURL=style.css.map */
